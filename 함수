@@ -1,0 +1,22 @@
+package com;
+	
+	public class SampleApp01 {//<- 정의한다.
+		public static void main(String[] args) {// ;<--선언
+			// 실행 내용 - 함수 중괄호 안에 모두 적는다.
+			System.out.println ("main-before");
+			fun01(); // 함수를 호출한다. / 뭐든 간에 메인함수 위주
+			// 다른 함수 안에선 함수를 선언, 정의 할 수없고 호출만 가능
+			// 정적 함수는 정적(static)만 사용할 수 있다.
+			
+			//화면에 출력하기 : 어디에(콘솔 화면), 무엇을(문자열 "")을 먼저 생각해보기.
+			System.out.println ("main-after");
+			//출력장치(System), 콘솔화면에(out), println이라는 명령이라는 하면 괄호안을 보여줘라는 명령
+			
+		}
+		// 함수를 정의하기
+		// [속성] 자료형 함수명(매개변수 선언){
+		// 지역변수 선언 }
+		static void fun01(/*외부-호출측-로부터 받을 값이 있을 때 변수를 선언*/) {
+			System.out.println ("fun01-called");
+		}
+	}
