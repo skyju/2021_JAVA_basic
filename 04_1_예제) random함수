@@ -42,4 +42,37 @@ public class SampleApp00 {
 			 System.out.println(number);
 			 //35%6 = 5 (임의의 값을 왼쪽에 쓰고 6으로 나머지를 하면, 0~5가 나오고)
 			 // 5+1 = 6 (1을 더하면 1~6이 나오고)
+	
+	//<임의값: random value를 처리하는 방법>
+	public static void main(String[] args) {
+		for(int i=0;i<10;i+=1) {
+			//실수값 ->정수 형변환 시 소수 이하 탈락
+			double lf =Math.random();
+			System.out.println((int)(lf*1000));
+		}
+		
+		Random random=new Random();
+		for(int i=0;i<10;i+=1) {
+			int r=random.nextInt(1000/*최댓값(1000제외), 양수만 =%10 */);
+			System.out.println(r);
+		}
+		
+	//랜덤 문자 생성//
+		for(int i=0;i<10;i+=1) {
+			int r=random.nextInt(26);
+			System.out.println((char)(r+65));//65부터 문자 코드임
+		}
+		
+	//char를 넣은, 문자 형태의 '숫자'만들기
+		for(int i=0;i<10;i+=1) {
+			int r=random.nextInt(10);
+			System.out.println((char)(r+48));//0=48
+		}
+		for(int i=0;i<10;i+=1) {
+			int r=random.nextInt();//아무것도 안적으면 양수 &음수 섞여 나옴
+			double lf=random.nextDouble();
+			System.out.println(r+", "+lf);
+		}
+	}
+	
 }
