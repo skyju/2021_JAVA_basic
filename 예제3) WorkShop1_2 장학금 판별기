@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class WorkShop1_2 {
+	
+	public static float getUserInput() {
+		Scanner scanner = new Scanner(System.in);
+		String input = scanner.nextLine();
+		return Float.parseFloat(input);
+	}//get함수 종료
+	
+	public static float averScoreFunc(
+			float a1, float a2, float a3, float a4, float a5) {
+		return (a1+a2+a3+a4+a5)/5;
+	}
+	
+	public static void main(String[] args) {
+		while(true) {
+			System.out.println("- 각 과목의 성적을 입력해주세요.\n"
+							 + "(0 ~ 4.5 사이의 값을 넣어주세요)");
+			System.out.printf("Computer Science 성적을 입력하세요: ");
+			float N1 = getUserInput();
+			System.out.printf("Java Programming 성적을 입력하세요: ");
+			float N2 = getUserInput();
+			System.out.printf("공학수학 성적을 입력하세요: ");
+			float N3 = getUserInput();
+			System.out.printf("오페라의 이해 성적을 입력하세요: ");
+			float N4 = getUserInput();
+			System.out.printf("베드민턴 성적을 입력하세요: ");
+			float N5 = getUserInput();
+			System.out.println("======================");
+
+			//<내가 작성>
+			float averScore = averScoreFunc(N1,N2,N3,N4,N5);
+			System.out.printf("평점은 [%.2f]입니다.\n", averScore);
+			float stdScore = 2.5f;
+				
+			if(	N1 >= stdScore 
+			 && N2 >= stdScore 
+			 && N3 >= stdScore 
+			 && N4 >= stdScore 
+			 && N5 >= stdScore) {
+					if (averScore>=3.7) {
+					System.out.println("다음 학기 장학금 대상자입니다.\n");
+					} 
+			} else {
+			System.out.println("과락입니다.\n");
+			}
+			
+			/**<수업 답안>
+			 * boolean cheackN1 = (N1 >= 2.5)? true:false;
+			 * boolean cheackN2 = (N1 >= 2.5)? true:false;
+			 * boolean cheackN3 = (N1 >= 2.5)? true:false;
+			 * boolean cheackN4 = (N1 >= 2.5)? true:false;
+			 * boolean cheackN5 = (N1 >= 2.5)? true:false;
+			 * boolean allCheack = cheackN1 && cheackN2 && 
+			 * 					cheackN3 && checkN4 && checkN5;
+			 * float totalScore = (N1+N2+N3+N4+N5)/5;
+			 * system.out.println("평점은"+totalScore+"점 입니다.");
+			 * if(totalScore >= 3.7){
+			 * 		if(allCheck){
+			 * 			System.out.println("다음 학기 장학금 대상자입니다.")
+			 * 		}
+			 * }
+			 * while문으로 묶는 건 똑같음.
+			 */
+			
+		}//while문 종료
+	}//main함수 종료
+}//class함수 종료
