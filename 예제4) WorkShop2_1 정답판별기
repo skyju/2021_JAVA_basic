@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class WorkShop2_4 {
+	/**
+	 * 9명의 학생이 시험을 치러서 답을 표기
+	 * 학생1 A B A C C D E F A D
+	 * 학생2 D B A B C A E F A D
+	 * 학생3 E D D A C B E E A D
+	 * 학생4 C B A E D D E F A D
+	 * 학생5 A B D C C D E E A D
+	 * 
+	 * 답안: D B D C C D A E A D
+	 * 정답지와 비교하여 몇개가 맞았는지 나타내는 프로그램을 만들어라.
+	 * 
+	 * -> 답안은 하나의 1차 배열 가운데 저장한다.
+	 */
+	
+	public static String getUserInput() {
+		Scanner scanner = new Scanner(System.in);
+		String input = scanner.nextLine();
+		return input;
+	}
+
+	public static void main(String[] args) {
+		char[] correct = new char[10];
+		correct[0] = 'D';
+		correct[1] = 'B';
+		correct[2] = 'D';
+		correct[3] = 'C';
+		correct[4] = 'C';
+		correct[5] = 'D';
+		correct[6] = 'A';
+		correct[7] = 'E';
+		correct[8] = 'A';
+		correct[9] = 'D';
+		
+		//대소문자 구분안하는 법 :  String class -> UpperCase(이용)
+		
+		for(int i=1;i<10;i++) {
+			System.out.printf("The Student[%d]'s Answer: ",i);
+			String Student = getUserInput();
+			int score = 0; //score 초기화 시켜야 함 위에서 아래에 두었다가 누적되어서 오류 
+			for(int j=0;j<10;j++) {
+				char[] answer;
+				answer = new char[10];
+				answer[j]= Student.charAt(j);
+				if(answer[j] == correct[j]) {
+					score+=1;
+				}
+			}
+			System.out.printf("The Student[%d]'s Score is %d\n",i,score);
+		}
+	}//main 함수끝
+}//class 함수끝
