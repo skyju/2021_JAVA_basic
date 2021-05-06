@@ -1,0 +1,45 @@
+package com;
+
+public class SampleApp00 {
+
+	public static void main(String[] arg) {
+		
+	// 인증번호, 비밀번호 등을 생성하기
+	// 예제1 <다섯자리의 임의 정수 생성방법>
+			 int num = 0;
+			 int key;
+			 key = (int)( ((Math.random()*100)%9) + 1); 
+			 
+       /*
+        * Math. (수학과 관련된 함수 쭉 나옴)
+			  * random의 반환값은 기본적으로 double타입이라 int로 변환해줌.
+			  * random은 0이상, 1미만 값이 나오기 때문에 소수점 위에 자리가 나오도록, *100하여 안전하게 두자리 올림
+			  * %9의 뜻: %9하면 0~8의 값이 나옴, +1 하면 (1~9의 값 얻을 수 있다.)
+			  */
+        
+			 num = num * 10 + key; //3
+			 key = (int)( (Math.random()*100) % 9 + 1);
+			 num = num * 10 + key; //33
+			 key = (int)( (Math.random()*100) % 9 + 1);
+			 num = num * 10 + key; //333
+			 key = (int)( (Math.random()*100) % 9 + 1);
+			 num = num * 10 + key; //3333
+			 key = (int)( (Math.random()*100) % 9 + 1);
+			 num = num * 10 + key; //33333 (10진수에서 * 10을하면 자리수를 올림, 같은 논리로 16진수에서는 *16)
+			 System.out.println(num);
+		 
+	//예제2 <4자리의 임의 정수 생성방법>
+		 // 1) 위처럼 하나하나 만드는 방법이있고 
+		 //	2) 1000~999 (네자리의 최솟값~최댓값 범위를 주고 그 값을 구할 수도 있음)
+
+			 int min = 1000;
+			 int max = 9999;
+			 int number = 0;
+			 int length = max-min+1; //연속하는 정수의 개수 length 이 경우엔 9000
+			 int ran = (int)(Math.random()*100000); //random (1자리~5자리 맘대로 나옴)
+			 number = (ran%length)+min; //임의의 값을 갯수로 나머지 연산을 함. , +min은 최솟값을 보장
+			 // 나머지 연산이 최댓값을 정한다.
+			 System.out.println(number);
+			 //35%6 = 5 (임의의 값을 왼쪽에 쓰고 6으로 나머지를 하면, 0~5가 나오고)
+			 // 5+1 = 6 (1을 더하면 1~6이 나오고)
+}
