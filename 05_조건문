@@ -1,0 +1,132 @@
+package com.bitcamp.day02;
+/*
+ * 대소문자 구분 잘해야 함 (패키지는 꼭 다 소문자로 작성, 클래스는 꼭 대문자로 시작하게 작성)
+ */
+public class SampleApp04 {
+	/**
+	 * 반복문: 여러 번 계속해서 실행되는 것 
+	 * 	- 여러 개의 데이터를 담은 배열, 리스트 등을 처리 사용
+	 * 	- (1) 한 번 실행
+	 *  - (2) 실행 중 변하는 것이 있는 가? (=)
+	 *  - (3) 변하는 것이 영향을 주는 다른 것이 있는 가?
+	 *  	- a = i + 7;
+	 *  
+	 * 계수하기
+	 * 	- 정수+1씩
+	 * 	- count = 0; 개
+	 * 	- count = count + 1; 
+	 * 
+	 * 총 개수가 몇 개 일 때, 
+	 * 한 페이지에 10개를 보여준다. 
+	 * 총 페이지 수는 몇 개?
+	 * 
+	 * 제어문 5가지
+	 * - (1) if *
+	 * - (2) switch
+	 * 	- 그 중 반복문
+	 * 	- (3) for *
+	 * 	- (4) while
+	 * 	- (5) do
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+	// <for>문 사용법 (특히 배열에서)
+		// 개수, 횟수가 정해진 경우
+		// ~시작 ; ~까지 ; ~씩 증감 (for문은 생략해도 됨, 무한히 반복됨)
+		int count = 0;
+		for(int i=0 ; i<10 ; i=i+3 ) {
+			System.out.println(i+".");
+			count = count+1; //개수 세기
+		}
+		System.out.println(count+"개(번)");
+		
+	// 개수, 횟수가 정해지지 않음: 끝은 있어야 한다. /사용자(키보드)로부터 입력을 받으세요. /3개를 받으면 for문,가변이면 while
+		while(true) {
+			System.out.println("..");
+			if(true /*반복을 종료하는 조건 */) {
+				break;
+			}
+		}
+		System.out.println("terminated"); //위의 조건이 참이기만하면 unreachable code가 됨
+	
+		do {
+			// 조건이 따로 없고 바로 최초 한 번은 실행한다.
+		}while(false/*결과에 따라 반복, 멈춤 판단*/);
+	}
+	
+	public static void main01(String[] args) {
+		/**
+		 * 어떤 명령을 실행하기 위한 조건이 있다.
+		 * 분기문, 선택문
+		 * if 		참, 거짓
+		 * switch	값이 ~ 경우
+		 */
+		//입력 -> 출력, 값 -> 실행함수
+		int value = 3;
+		char week = ' ';
+		switch(value /*상수식 - 값이 얼마다*/) {
+			case 'W': // value값이 10이거나 0 일 때 week값이 '일'이라는 뜻 (case옆에 값을 딱 1개만 쓸 수 있기 때문에)
+					 // 이처럼 value>0;와 같은 범위를 쓸 수 없기 때문에 범위 문제에는 사용하지 않음
+			case 'w':
+				week = '일';
+				break; //멈춘다. break의 위치는:  switch와 반복문 안에서만 사용 가능/단독사용불가능
+			case 1:
+				week = '월';
+				break;
+			case 2:
+				week = '화';
+				break;
+			case 3:
+				week = '수';
+				break;
+			case 4:
+				week = '목';
+				break;
+			case 5:
+				week = '금';
+				break;
+			case 6:
+				week = '토'; //스위치는 전부다 실행하면서 내려오기 때문에, 가장 마지막 값만 콘솔에 나옴
+				break;
+		}
+		System.out.println(week);
+	}
+	
+	public static void main02(String[] args) {
+		int number = 40;
+		if(true) {
+			//조건이 참이면 실행한다.
+		}
+		//조건연산자: 그 자체가 하나의 실행.
+		if(number>40) {
+			//실행할 명령이 여러개.
+		}else {
+			//조건이 거짓이면 실행한다.
+		}
+	}	
+	
+	public static void main03(String[] args) {	
+		
+		// 조건연산자: ( 조건식 ) ? 참:거짓   / if() else /가능한 많이 써볼 것
+		// 식이 아니라 연산자이므로, 식에 포함시켜서 사용할 수 있다.
+		int score = 90;
+		int n = 3 + ((score<90)?5:7); // 5 또는 7을 더한다.
+		System.out.println(n);
+		// 조건연산자는 중첩 구조 표현 가능
+		/*
+		 * (A) ? aT: 
+		 * 		(B) ? bT:
+		 * 			(C) cT:bF;
+		 */
+		// 정수를 반환하는 함수
+		int rt = get(10,30); //두 개의 정수값을 전달받아서, 둘 중에 큰 값을 반환하는 방법
+		System.out.println(rt);
+	}
+	
+	private static int get(int i, int j) {
+		// TODO Auto-generated method stub
+		return (i>j)? i:j;
+		
+	}
+}
