@@ -1,0 +1,25 @@
+package com.day01;
+/*
+ * 1.패키지 생성
+ * 2.소스파일 생성
+      - 소스 파일 1개당 클래스는 원칙적으로 1개
+ * 		- 확장자:.java
+ * 3.class 예약어 사용
+ * 		- 모든 실행할 내용은 클래스 안에 적는다.
+ * 4. Run As -> 1. Java Application
+ * 		- 콘솔 환경: main 함수가 있어야 한다.
+ * 		- 현재시스템(PC)에서 호출한다.
+ * 		- 진입점(entry point)
+ */
+public class SampleApp01 {
+
+  어셈블리
+  컴파일러
+  전처리기
+  .o
+  .c
+  공부하기
+  
+	public static void main(String[] args) {
+		}   
+}
