@@ -1,0 +1,33 @@
+package com;
+
+/**
+ * 변수의 선언[자료형] 변수명;
+ * 1. 선언위치에 따라: field, 매개변수, 지역변수 ...
+ * 2. 지역성 - 사용 가능한 범위, 같은 지역에서 이름 중복 불가.
+ * 3. 초기화 - 값을 저장한 후에 사용할 수 있다.
+ */
+ 
+	public class SampleApp02 {
+		public static void main(String[] args) {// main 함수의 지역
+			int num = 100;
+			{// 지역 생성, 위에 선언된 변수를 안에서 사용 가능
+				num = 200;
+				int total = 300;
+				System.out.println(num);
+				System.out.println(total);
+			}
+			// System.out.println(total);
+			// 지역 내에 선언된 변수는 외부에서 사용 불가
+			// 제어문에서 문제가 발생될 것
+		}
+    
+	/**
+	 * 변수를 사용하려면 반드시 선언과 초기화 해야 함.
+	 * -> 대입연산을 하지 않았다 -> 변경되지 않았다 -> 실행 중
+	 */
+   
+		public static void main01(String[] args) {
+			int num = 30; //소괄호가 있으면 함수명, 없으면 변수명
+			int sum = 10; 
+		}
+	}
