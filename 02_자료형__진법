@@ -1,0 +1,73 @@
+package com.bitcamp.day01;
+/* 
+ *  <자료형>
+ *  - 기본형(Primitive) : 값들의 종류를 나타낸다. (값이 ~다. - 시각적, 직관적)
+ * 	> (1) 수치형
+ * 		  - 1) 정수
+ * 		  	byte  : 1byte  <-- ASCII
+ * 		  	short : 2bytes
+ * 		  	int   : 4bytes <-- default: 10진수 최대 자리수가 얼마나 필요한가 생각해보기. (int의 경우 9자리 : 억단위)
+ * 		  	long  : 8bytes <-- (숫자L)로 표기
+ * 
+ * 		  - 2) 실수
+ * 			  float : 4bytes <-- (숫자f)로 표기
+ * 			  double: 8bytes <-- default 
+ * 
+ * 	> (2) 문자(열)형
+ * 		  	char  : 2bytes <-- Unicode(문자) [''], 빈문자는 안됨, 공백이라도 넣어야 함
+ * 			  Sting : 문자열, 참조형 [""], 빈문자열 가능
+ * 
+ * 	> (3) 논리형: 조건식에 쓰임
+ * 			  boolean: 논리 값: true / false
+ * 
+ *  > (4) 참조형(Reference) : 값이 ~에 있다.
+ * 		    .(dot) 연산 위치로 간다. (위치에~, dot연산 왼쪽에는 반드시 참조파일이 있어야 함) cf> C언어: 포인터
+ *===========================================================================================
+ *  <기본형과 참조형의 차이>
+ *  - stack & heap
+ *  > (1) 기본형: Value Type : JVM의 stack 메모리 공간에 할당되고 초기화됨.
+ *        ex) int a = 1; <-- stack공간에 a라는 공간이 할당되고 1값이 들어감. a<-1
+ *            int b = a; <-- stack공간에 b라는 공간이 할당되고 a와 같은 값인 1값이 들어감. b<-1
+ *
+ *  > (2) 참조형: Reference Type : JVM안의 heap공간과 stack공간을 사용
+ *        ex) Employee e = new Employee(); <-- new를 만나면 만들어놧던 메소드 구조 모양 대로, heap공간에 구조를 만들어 e공간의 주소가 생김
+ *            e. name = "이름"; <--e가 참조하는 heap공간에 stack의 변수 name 값을 복사하여 넣음 
+ *            e. age = 30;      <--e가 참조하는 heap공간에 stack의 변수 age 값을 복사하여 넣음
+ *            Employee e2 = e;  <--e2공간이 참조하는 곳이 e가 참조하는 곳과 같음 (주소가 같다는 말임) 
+ *            e2.name = "성";   <--e2가 참조하는 곳(=e가 참조하는 곳, 결국 같은 곳)에 stack의 변수 name의 변한 값을 복사하여 넣음
+ *                              = 즉, heap공간의 값이 이름에서 성으로 바뀌었다는 뜻
+ *            System.out.printf("%s, %s\n", e.name, e.age); => 출력하면 성, 30 나옴
+ *===========================================================================================
+ *  <상수와 리터럴>
+ *   상수는 변수 앞에 키워드 'final'을 붙여서 표기
+ *   final int MAX_SPEED = 30; <-- 일반적으로 상수의 이름은 모두 '대문자'로 표기한다. 단어 구분은 '_'이용
+ *===========================================================================================
+ *  <문자열 결합>
+ *  String LastName = "Dennis";
+ *	String FirstName = "Lee";
+ *	String FullName = LastName+","+FirstName;
+ *	System.out.println(FullName);
+ *===========================================================================================
+ *  <진법과 보수>
+ *  > (1) 2진법: int bin = 001101111; .... 
+ *             : printf에서는 지시자 %s를 쓴 뒤, Integer.toBinaryString(); 이용
+ *  > (2) 8진법: int oct = 034; .... (접두 0을 붙여서 표기) 
+               : printf에서는 지시자 %o 이용, (접두사를 붙이고 싶으면 %#o)
+ *  > (3) 16진법: int hexa = 0X34; .... (접두 0X를 붙여서 표기)
+               : printf에서는 지시자 %x 이용
+ *
+ *  > 진법에 맞는 출력하기
+ *    - System.out.println(Integer.toHexString(hexa)); //34
+ *		- System.out.println(Integer.toOctalString(oct)); //34
+ *    - System.out.println(Integer.toBinaryString(bin)); //1101111
+ */ 
+ 
+public class SampleApp02 {
+	public static void main(String[] args) {
+	}
+  
+	class Employee {
+	public String name;
+	public int age;
+}
+}
