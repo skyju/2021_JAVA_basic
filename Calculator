@@ -9,17 +9,6 @@ class Calculator {
 }
 
 public class WorkShop_C {
-	package day04;
-import java.util.*;
-
-class Calculator {
-	float add(float x, float y) { return x+y; }
-	float subtract(float x, float y) { return x-y; }
-	float multiply(float x, float y) { return x*y; }
-	float divide(float x, float y) { return x/y; }
-}
-
-public class WorkShop_C {
 	
 	public static int getUserInput() {
 		Scanner scanner = new Scanner(System.in);
