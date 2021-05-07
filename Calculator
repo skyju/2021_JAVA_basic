@@ -1,13 +1,6 @@
 package day04;
 import java.util.*;
 
-class Calculator {
-	float add(float x, float y) { return x+y; }
-	float subtract(float x, float y) { return x-y; }
-	float multiply(float x, float y) { return x*y; }
-	float divide(float x, float y) { return x/y; }
-}
-
 public class WorkShop_C {
 	
 	public static int getUserInput() {
@@ -16,9 +9,13 @@ public class WorkShop_C {
 		int Value = Integer.parseInt(inpuString);
 		return Value;
 	}
+	static float add(float x, float y) { return x+y; }
+	static float subtract(float x, float y) { return x-y; }
+	static float multiply(float x, float y) { return x*y; }
+	static float divide(float x, float y) { return x/y; }
 	
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws InterruptedException {	
+		for(;;) {
 		System.out.println("#######################");
 		System.out.println("# 1. 덧셈");
 		System.out.println("# 2. 뺄셈");
@@ -26,9 +23,6 @@ public class WorkShop_C {
 		System.out.println("# 4. 나눗셈");
 		System.out.println("# 5. 종료");
 		System.out.println("#######################");
-		
-		
-		for(;;) {
 		System.out.print("# 메뉴를 선택해주세요:");
 		int a = getUserInput();
 			while(a!=5) {
@@ -39,9 +33,9 @@ public class WorkShop_C {
 					int x = getUserInput();
 					System.out.print("# 두번째 숫자를 입력해주세요:");
 					int y = getUserInput();
-					Calculator cal = new Calculator();
-					int z = (int) cal.add(x,y);
-					System.out.printf("결과는 %d입니다.\n", z);
+					int z = (int)add(x,y);
+					System.out.printf("결과는 %d입니다.\n\n", z);
+					Thread.sleep(1000);
 					break;
 				}
 				case 2: {
@@ -50,9 +44,9 @@ public class WorkShop_C {
 					int x = getUserInput();
 					System.out.print("# 두번째 숫자를 입력해주세요:");
 					int y = getUserInput();
-					Calculator cal = new Calculator();
-					int z = (int) cal.subtract(x,y);
-					System.out.printf("결과는 %d입니다.\n", z);
+					int z = (int)subtract(x,y);
+					System.out.printf("결과는 %d입니다.\n\n", z);
+					Thread.sleep(1000);
 					break;
 				}
 				case 3: {
@@ -61,9 +55,9 @@ public class WorkShop_C {
 					int x = getUserInput();
 					System.out.print("# 두번째 숫자를 입력해주세요:");
 					int y = getUserInput();
-					Calculator cal = new Calculator();
-					int z = (int) cal.multiply(x,y);
-					System.out.printf("결과는 %d입니다.\n", z);
+					int z = (int)multiply(x,y);
+					System.out.printf("결과는 %d입니다.\n\n", z);
+					Thread.sleep(1000);
 					break;
 				}
 				case 4: {
@@ -72,22 +66,22 @@ public class WorkShop_C {
 					int x = getUserInput();
 					System.out.print("# 두번째 숫자를 입력해주세요:");
 					int y = getUserInput();
-					Calculator cal = new Calculator();
-					int z = (int) cal.divide(x,y);
-					System.out.printf("결과는 %d입니다.\n", z);
+					float z = divide(x,y);
+					System.out.printf("결과는 %.1f입니다.\n\n", z);
+					Thread.sleep(1000);
 					break;
 				}
 				default:
-					System.out.println("메뉴에 없는 입력값입니다.");
+					System.out.println("메뉴에 없는 입력값입니다.\n");
 					break;
 				}//switch 문 끝
 			break;
 			}//while문 끝
 			if (a==5) {
 			System.out.println("종료합니다.");
+			System.exit(0);
 			break;
 			}
 		}//for문 끝	
 	}//main함수 끝
-
-}
+}//class 끝
