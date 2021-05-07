@@ -1,0 +1,92 @@
+package day04;
+import java.util.*;
+
+class Calculator {
+	float add(float x, float y) { return x+y; }
+	float subtract(float x, float y) { return x-y; }
+	float multiply(float x, float y) { return x*y; }
+	float divide(float x, float y) { return x/y; }
+}
+
+public class WorkShop_C {
+	
+	public static int getUserInput() {
+		Scanner scanner = new Scanner(System.in);
+		String inpuString = scanner.nextLine();
+		int Value = Integer.parseInt(inpuString);
+		return Value;
+	}
+	
+	public static void main(String[] args) {
+
+		System.out.println("#######################");
+		System.out.println("# 1. 덧셈");
+		System.out.println("# 2. 뺄셈");
+		System.out.println("# 3. 곱셈");
+		System.out.println("# 4. 나눗셈");
+		System.out.println("# 5. 종료");
+		System.out.println("#######################");
+		
+		
+		for(;;) {
+		System.out.print("# 메뉴를 선택해주세요:");
+		int a = getUserInput();
+			while(a!=5) {
+				switch (a) {
+          case 1: {
+            System.out.println("# 덧셈을 시작합니다.");
+            System.out.print("# 첫번째 숫자를 입력해주세요:");
+            int x = getUserInput();
+            System.out.print("# 두번째 숫자를 입력해주세요:");
+            int y = getUserInput();
+            Calculator cal = new Calculator();
+            int z = (int) cal.add(x,y);
+            System.out.printf("결과는 %d입니다.\n", z);
+            break;
+          }
+          case 2: {
+            System.out.println("# 뺄셈을 시작합니다.");
+            System.out.print("# 첫번째 숫자를 입력해주세요:");
+            int x = getUserInput();
+            System.out.print("# 두번째 숫자를 입력해주세요:");
+            int y = getUserInput();
+            Calculator cal = new Calculator();
+            int z = (int) cal.subtract(x,y);
+            System.out.printf("결과는 %d입니다.\n", z);
+            break;
+          }
+          case 3: {
+            System.out.println("# 곱셈을 시작합니다.");
+            System.out.print("# 첫번째 숫자를 입력해주세요:");
+            int x = getUserInput();
+            System.out.print("# 두번째 숫자를 입력해주세요:");
+            int y = getUserInput();
+            Calculator cal = new Calculator();
+            int z = (int) cal.multiply(x,y);
+            System.out.printf("결과는 %d입니다.\n", z);
+            break;
+          }
+          case 4: {
+            System.out.println("# 나눗셈을 시작합니다.");
+            System.out.print("# 첫번째 숫자를 입력해주세요:");
+            int x = getUserInput();
+            System.out.print("# 두번째 숫자를 입력해주세요:");
+            int y = getUserInput();
+            Calculator cal = new Calculator();
+            int z = (int) cal.divide(x,y);
+            System.out.printf("결과는 %d입니다.\n", z);
+            break;
+          }
+				default:
+					System.out.println("메뉴에 없는 입력값입니다.");
+					break;
+				}//switch 문 끝
+			}//while문 끝
+      
+		  if (a==5) {System.out.println("종료합니다.");}
+      
+	  }//for문 끝	
+    
+	}//main method 끝
+
+}
