@@ -1,0 +1,43 @@
+class BBSItem {
+	int seqNo;
+	static int count;
+	{//코드 의미상 모든 생성자에서 공통으로 수행되어야하는 내용이기 때문에 인스턴스 블럭 사용
+		++count;
+		seqNo = count;
+	}
+	String writer;
+	String writtenDate;
+	String title;
+	String content;
+	BBSItem(String writer, 
+			String writtenDate,
+			String title,
+			String content) {
+		this.writer = writer;
+		this.writtenDate = writtenDate;
+		this.title = title;
+		this.content = content;
+	}
+	BBSItem(){
+	}
+}
+public class WorkShop2_3 {
+	public static void printBBSItem(BBSItem b) {
+		System.out.println("일련 번호: "+b.seqNo);
+		System.out.println("작성자: "+b.writer);
+		System.out.println("작성일자: "+b.writtenDate);
+		System.out.println("글 제목: "+b.title);
+		System.out.println("내용: "+b.content);
+		System.out.println();
+	}
+	public static void main(String[] args) {
+	BBSItem b1 = new BBSItem("작가","12-09-03","고양이","야옹");
+	BBSItem b2 = new BBSItem();
+	BBSItem b3 = new BBSItem();
+	System.out.println("생성된 글 개수: "+BBSItem.count+'\n');
+	printBBSItem(b1);
+	printBBSItem(b2);
+	printBBSItem(b3);
+	}
+
+}
