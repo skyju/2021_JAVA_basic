@@ -1,0 +1,67 @@
+class Account {
+	private String AccountNo;
+	private String AccountName;
+	private double Balance;
+	public static double interest;
+	public Account() {
+	}
+	public Account(String AccountNo, String AccountName, double Balance) {
+		this.AccountNo = AccountNo;
+		this.AccountName = AccountName;
+		this.Balance = Balance;
+	}
+	public void setAccountNo(String AccountNo) {
+		this.AccountNo = AccountNo;
+	}
+	public String getAccountNo() {
+		return this.AccountNo;
+	}
+	public void setAccountName(String AccountName) {
+		this.AccountName = AccountName;
+	}
+	public String getAccountName() {
+		return this.AccountName;
+	}
+	public void setBalance(double Balance) {
+		this.Balance = Balance;
+	}
+	public double getBalance() {
+		return this.Balance;
+	}
+	public double deposit(double x) {
+		return this.Balance = this.Balance + x;
+	}
+	public double withdraw(double x) {
+		return this.Balance = this.Balance - x;
+	}
+	public double addInterest() {
+		return this.Balance = this.Balance + (this.Balance * interest);
+	}
+}
+public class WorkShop2_1 {
+	static void printAccount(Account customer) {
+		System.out.println("계좌번호: "+ customer.getAccountNo());
+		System.out.println("예금주 이름: "+ customer.getAccountName());
+		System.out.println("잔액: "+ customer.getBalance());
+		System.out.println();
+	}
+	public static void main(String[] args) {
+		Account customer1 = new Account("111-222-33333333", "최은희", 20000);
+		Account customer2 = new Account("555-666-77777777", "남매월", 100000);
+		
+		System.out.println("<기본적립금>");
+		printAccount(customer1);
+		printAccount(customer2);
+		System.out.println("<한 번의 입출금>");
+		customer1.deposit(1000000);
+		customer2.withdraw(30000);
+		printAccount(customer1);
+		printAccount(customer2);
+		System.out.println("<이자율의 계산>");
+		Account.interest=0.05;
+		customer1.addInterest(); // 저축된 금액 = 원금+원금*이자율
+		customer2.addInterest();
+		printAccount(customer1);
+		printAccount(customer2);
+	}
+}
