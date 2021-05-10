@@ -22,17 +22,18 @@ public class WorkShop2_4 {
 	}
 
 	public static void main(String[] args) {
-		char[] correct = new char[10];
-		correct[0] = 'D';
-		correct[1] = 'B';
-		correct[2] = 'D';
-		correct[3] = 'C';
-		correct[4] = 'C';
-		correct[5] = 'D';
-		correct[6] = 'A';
-		correct[7] = 'E';
-		correct[8] = 'A';
-		correct[9] = 'D';
+//		char[] correct = new char[10];
+//		correct[0] = 'D';
+//		correct[1] = 'B';
+//		correct[2] = 'D';
+//		correct[3] = 'C';
+//		correct[4] = 'C';
+//		correct[5] = 'D';
+//		correct[6] = 'A';
+//		correct[7] = 'E';
+//		correct[8] = 'A';
+//		correct[9] = 'D';
+		char[] correct = {'D','B','D','C','C','D','A','E','A','D'};
 		
 		//대소문자 구분안하는 법 :  String class -> UpperCase(이용)
 		
