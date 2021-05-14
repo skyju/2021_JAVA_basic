@@ -34,4 +34,22 @@ public class WorkShop2_4 {
 			System.out.printf("The Student[%d]'s Score is %d\n",i,score);
 		}
 	}//main 함수끝
+	
+		
+//	public static void main(String[] args) {
+//		String[] correct = {"D","B","D","C","C","D","A","E","A","D"};
+//		for(int i=1;i<10;i++) {
+//			System.out.printf("The Student[%d]'s Answer: ",i);
+//			String Student = getUserInput();
+//			int score = 0;
+//			for(int j=0;j<10;j++) {
+//				String[] answer = new String[10];
+//				answer[j] = (Student.charAt(j)+"").toUpperCase();
+//				if(answer[j].equals(correct[j])) {
+//					score+=1;
+//				}
+//			}
+//			System.out.printf("The Student[%d]'s Score is %d\n",i,score);
+//		}
+//	}
 }//class 함수끝
