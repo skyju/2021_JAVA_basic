@@ -1,0 +1,65 @@
+//<구구단표 만들기>
+
+	private static void gugudan01() {
+		for(int dan=2;dan<10;dan+=1) {
+			for(int i=1;i<10;i+=1) {
+				System.out.println(
+						dan+" x "+i+" = "+(dan*i));
+			}
+		}
+	}
+  
+//<구구단표 만들기-2>: 구구단을 3행 3열로 출력하기
+	// - 규칙성 찾기
+	// 		2단 3단 4단 (옆으로는 +1단)
+	// 		5단 6단 7단 (아래로는 +3단)
+	// 		8단 9단 10단
+  
+	//<3중첩 for문>
+	private static void gugudan02() {
+		int cols=3;
+		for(int i=2;i<9;i+=cols) { //2,5,8(3번 반복)
+			for(int k=1;k<=9;k+=1) {//i=2일 때 k=1~9
+				for(int m=0;m<cols;m+=1) {//k=1일 때 0,1,2(3번 반복)
+					int dan=i+m; //2+0,2+1,2+2 or 5+0 5+1 5+2...
+					int v=k; //k=1~9
+					int multi=dan*v; //2*(1~9) or 5*(1~9)
+					if(dan>=10) {
+						break; 
+						//반복문 안의 break는 첫번 째 껏만 브레이크 k반복으로 넘어감
+						//중첩구조에서는 첫번째 반복만 벗어난다.
+//						break out;//move to <label> /out은 반복의 조건식있는 곳에
+					}
+				System.out.print(dan+" x "+v+" = "+multi+"\t");
+				}
+			System.out.print("\n");
+			}
+		System.out.println(" ");
+		}
+	}
+  //================================================================
+  //<직선그래프: 1차방정식>
+	private static void print02() {
+		// TODO 5행 5열의 출력 구조(레이아웃): 2차구조 표현의 기본적 형태: 반복을 겹쳐놓기
+		int a=-1;//기울기
+		int b=3;
+		//Math. 수학문제 풀 때 사용할 함수들이 있다.
+		for(int r=0;r<5;r+=1) {
+		//행 r==0일 때, c는 0~4까지 5번 반복한다.
+			for(int c=0;c<5;c+=1) {
+			//열
+			if(r==(a*c)+b) { //r==c, r<=c, r!=c, r=2 etc..
+				System.out.print("*");
+			}else {
+				System.out.print(" ");
+			}
+			}
+		System.out.print("\n");	
+		}	
+	}
+	private static void print01() {
+		// TODO: 행, 열 구분해서 출력
+//		System.out.print("123\n456\n789\n");
+//		System.out.println();
+	}
+}
