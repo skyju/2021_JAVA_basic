@@ -1,0 +1,102 @@
+
+//import java.util.Random;
+import java.util.Scanner;
+
+public class SampleApp02 {
+	//기능의 기초 CRUD /create, retrieve, update, delete
+	/**
+	 * 숫자 맞추기 게임: 업다운 게임 구현해보기
+	 * 사람이 생각한 수를 컴퓨터가 맞추는 프로그램
+	 * 		1. 사람이 정담을 정한다: 1~100 사이 정수 <엔터>
+	 * 		2. 컴퓨터가 예상하는 값을 출력해서 보여줌 (물어봄)
+	 * 		3. 사람이 보고 대답  -1) Up: 정답보다 큰 값을 출력했을 때
+	 * 					  -2) Down: 정답보다 작은 값을 출력했을 때
+	 * 					  -3) Correct: 정답을 맞췃을 때
+	 * 		4. 정답이 아니면 다음 수를 예상하고 2번부터 반복한다.
+	 * 
+	 * advanced: 컴퓨터vs컴퓨터
+	 * @param args
+	 */
+   
+   
+	public static void main(String[] args) {
+		Scanner value=new Scanner(System.in);
+//		Random ran=new Random();
+		int min=1;
+		int max=100;
+		//이진탐색법: 정렬된 값을 찾을 때 사용한다.
+		while(true) {
+			int call=(min+max)/2; //(100)+1; //1~100사이의 값)
+			System.out.println(call+"?"+"\n [1]Up [2]Down [3]Correct");
+			System.out.println("cmd> ");
+			String cmd=value.nextLine();
+			if(cmd.equals("3")) {
+				System.out.println("corrected");
+				break;
+			}
+			switch (cmd) {
+			case "1":
+//				"컴퓨터의 대답(call)이 내가 생각한 값 보다 큼, (컴퓨터의 대답보다 큰쪽은 다 날려도됨)"
+				System.out.println(call+"보다 작구나");
+				max = call;
+				break;
+			case "2":
+//				"컴퓨터의 대답이 사용자 정답보다 작음, (컴퓨터의 대답보다 작은 쪽은 다 날려도 됨"
+				System.out.println(call+"보다 크구나");
+				min = call;
+				break;
+			default:
+				System.out.println("잘못 입력하셨습니다.");
+			}
+		}
+		value.close();
+		//첫번 째 물음은 50, 그거보다 작은게 정답이다 하면 25 묻고, 반대에는 75묻는식.
+	}
+	
+	public static void main02(String[] args) {
+		//키보드 입력을 받기 위해
+		//스캐너는 입력자체를 받는 게 아니고, 받은 데이터 값을 변환하는 역할만함 , 일종의 변환기
+		//스캐너라는 변수, kb에 새로운 스캐너를 만들어라
+		Scanner kb=new /*열어서 연결한다.*/ Scanner(System.in/*입력을 어디에서 받을건지, System.in은 키보드입력 받는다는뜻*/);
+		//계속해서 실행 중인 상태 표현
+		while(true) {
+			//실제 실행할 내용
+			//키보드 입력은 "문자열" 입력을 받는다.
+			System.out.println("cmd> ");
+			String cmd = kb.nextLine();//행하나, 행은 엔터치면 내려가니까 엔터치기까지
+			//따라서 nextLine은 입력 버퍼의 모든 문자를 다 가져옴.
+			if(cmd.equals("exit")/*입력받은 값이 exit과 같으면*/) {//입력받는 값은 사용자에 따라 맨날 바뀌는 값 ->변수
+				break;//stop while loop , 멈추는 실행이므로, if()안에 반복을 멈추는 조건을 적는다.	
+			}
+			switch(cmd) {
+				case "add":
+					break;//end switch
+				case "list":
+					break;
+				case "remove":
+					break;
+				case "edit":
+					break;
+				case "search":
+					break;
+				default:
+					System.out.println("해당하는 명령이 없음");
+			}
+		}
+		//종료 - 정리한다.
+		kb.close();
+	}
+	
+	public static void main01(String[] args) {
+		//진입점, 시작하는 함수, 끝나기도 함 : 시작과 끝
+		for(int i=0;i<5;i+=1){//여기서 참이면 반복이지만
+			System.out.println("12345");
+			if(i<10) {//의미없는 식
+				break; //if에서 참이면 멈춤이다.
+			}
+		}
+//		System.out.println("12345");
+//		System.out.println("12345");
+//		System.out.println("12345");		
+	}
+}
