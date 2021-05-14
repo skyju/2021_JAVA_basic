@@ -1,0 +1,61 @@
+public class SampleApp03 {
+	public static void main(String[] args) throws IOException {
+//		print01();
+//		print02();
+//		print03();
+//		gugudan01();
+//		gugudan02();
+//		keyboard01();
+//		keyboard02();
+		keyboard03();
+	}
+//================================================================
+//<키보드에서 정수 입력받기>
+	private static void keyboard03() throws IOException {
+		//정수, 실수로 바꾸는 처리가 이미 함수로 구현되어있다.
+		//Scanner함수에도 버퍼링은 존재하기 때문에
+		//입력 버퍼에 남은 값이 있으면 지나간다.
+		Scanner kb=new Scanner(System.in);
+		int num=kb.nextInt();
+		System.out.println(num);
+		//아래는 원리
+		int number=0;
+		int k;
+		while((k=System.in.read())!='\r') {
+			number=number*10+(k-48);
+			System.out.println(number);
+		}
+	}
+
+//<키보드에서의 입력받기>
+	//모든 외부 입출력에 대해 예외(error) 처리를 해야 함
+	//try catch,실행할 것은 try쪽에
+	//4를 쳤으면 '4'와 '\r\n'이 저장되어 있다가. 첫번째를 반환함 13, \r값 10(\n은 리턴안됨)
+	private static void keyboard02() {
+		try {
+			int value=System.in.read(); //처음 누른 값 4 읽음 -> 13
+			System.out.println(value);
+			value=System.in.read();//\r값 읽음 ->10
+			System.out.println(value); 
+			value=System.in.read();//\n값 읽음 ->안나옴, 4를 눌렀을 시 이제 버퍼가 빔.4
+			System.out.println(value); 
+			value=System.in.read();
+			System.out.println(value); 
+			//1. 키보드 입력버퍼에 임시로 저장해둔다.
+			//2. 엔터(종료) -> 두글자 '\r\n'
+			//3. 버퍼의 문자를 순서대로 하나씩 반환한다.
+			//	버퍼가 비어있어야 새로 입력을 받을 수 있음
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+//<키보드에서의 입력받기: 문자->정수>
+	//정수를 문자로 바꾸는 처리가 필요
+	private static void keyboard01() {
+		int a=65;//2byte 범위에서만 가능
+		char c=(char)a;
+		System.out.println(a);//'A'의 번호(값)이 65 <-문자코드
+		System.out.println(c);
+		//문자를 입력한다: "123" -> 123
+		//키보드에서 입력되는 것은 기본적으로 문자라고 생각하고, 그것을 정수로 변환하는 것이 필요하다 생각
+	}
