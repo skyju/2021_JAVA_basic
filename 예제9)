@@ -1,0 +1,158 @@
+
+/**
+ * <연습 풀이>
+ * main 함수는 1개만 작성
+ * 	- 각 문제 별로 함수를 작성하고 main에서 호출
+ * 
+ * @author bitcamp
+ *
+ */
+
+//각 문제별 풀이 함수
+public class SampleApp02 {
+	public static void main(String[] args) {
+//		printGrade(90);
+//		printGrade(201);
+//		printGrade2(201);//예외표현		
+//		printNumbers(100,1);//작은 값 -> 큰 값
+//		printNumbers2(1,100);
+//		printNumbers2(10,10);
+//		stringMethod1();
+//		stringMethod2();
+//		stringMethod3();
+		splitString();//String.split(): 문자 열을 여러 개로 나눈다.
+	}
+	
+	//<예제4> 문자를 찾아서 행내림하기(.charAt함수) /검색의 기초적 형태, 검색은 반복문+if문
+	//charAt()함수는 String으로 저장된 문자열 중에서 한 글자만 선택해서 char타입으로 변환해주는 함수
+	//char는 한 글자만 저장할 수 있는 변수이기 때문에
+	private static void splitString() {
+		String queryString="https://www.google.com/search?source=hp&ei=PXpRYNzbE4CYr7wP_eeEiAY&iflsig=AINFCbYAAAAAYFGITUTvNQXOeijB4a6rr-vmIST2aNNV&q=gg&oq=gg&gs_lcp=Cgdnd3Mtd2l6EAMyCAgAELEDEIMBMgIIADIICAAQsQMQgwEyBQgAELEDMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBMgIIADIICAAQsQMQgwEyAggAUK8JWOMKYNEMaABwAHgAgAHVAYgBhAOSAQUwLjEuMZgBAKABAaoBB2d3cy13aXo&sclient=gws-wiz&ved=0ahUKEwic7uj7s7bvAhUAzIsBHf0zAWEQ4dUDCAc&uact=5";
+		int count=0;//&문자의 개수
+		for(int i=0;i<queryString.length();i+=1) {
+			char ch=queryString.charAt(i);
+			if(ch=='&') {
+				count+=1;//if안에서 해야, &일 때 하나 씩 셀 수 있음
+				System.out.println("&");
+			}
+		}
+		System.out.println(count+"개");
+	}
+	
+	//<예제3-3> a 문자열 안에 b 문자열이 포함되는지 확인하기(.contains함수)
+	private static void stringMethod3() {
+		String a="korea";
+		String b="korea";
+		boolean comp=(a.contains(b));
+		System.out.println("contains:"+comp);
+	}
+
+	
+	//<예제3-2> 문자를 비교하기(.equals함수)
+	private static void stringMethod2() {
+		String a="korea";
+		String b="2021";
+		boolean comp=(a.equals(b));
+		System.out.println(comp);
+		//첫 글자 대문자인 자료형은 참조형(!기본형). 비교하는 방법이 다르다.
+		//기본형 변수인 int는 그냥 그 자체가 하나의 값이니까 아래처럼 가능
+		int i=10;
+		int k=20;
+		boolean comp2=(i==k);
+		System.out.println(comp2);
+	}
+	
+	//<예제3-1> 문자열에서 문자 꺼내기(.length함수)
+	/* ""문자열 -> String -> 함수들
+	 * String -> char(문자열 안의 문자들을 하나 씩 꺼낼 수 있음)
+	 */
+	private static void stringMethod1() {
+		String str = "korea2021";
+		System.out.println("문자열 길이:"+str.length()+"개");
+		// 각 문자는 0번부터 셈, 길이 -1번 번호로 사용가능
+		int length = str.length();
+		for(int i=0;i<length/*등호주의, 0번부터니까*/;i+=1/*i=i+1을 줄여쓰는 법*/) {
+			char ch = str.charAt(i);
+			System.out.print(ch+"\n");
+		}
+	}
+	
+	//<예제2> 1씩 차례로 세기 
+	private static void printNumbers(int start, int end) {
+		//교환하기: 두 변수를 '교환'하는 방법
+		if(start>end) {
+			int t = start;
+			start = end;
+			end = t;
+		}
+		for(int value=start;value<=end;value=value+1) {
+			System.out.print(value+",");
+		}
+	}
+	//<예제2-2 - advanced> / 부등호방향 주의
+	private static void printNumbers2(int start, int end) {
+		int d = (start<end)? 1:-1;//증감식 부호 변경
+		//실행 중 연산자를 바꾸는 방법?
+		boolean cond = true;
+		for(int value=start;cond;value=value+d) {
+			if(start<end) {
+				cond = value <= end;
+			}else {
+				cond = value >= end;
+			}
+			System.out.print(value+",");
+		}
+	}
+	
+	//<예제1> 점수 프로그램 만들기
+	public static void printGrade(int score) {
+		char grade = ' ';
+		if(score>=90 && score<=100) {
+			grade='A';
+		}
+		if(score>=80 && score<90) {
+			grade='B';
+		}
+		if(score>=60 && score<80) {
+			grade='C';
+		}
+		if(score>=40 && score<60) {
+			grade='D';
+		}
+		if(score>=0 && score<40) {
+			grade='F';
+		}
+		System.out.println("printGrade:"+grade);
+	}
+	//<예제1-2 - advanced>
+	/*
+	 * score 값에 따라서 grade가 변경된다.
+	 * 조건에 따라 if || switch
+	 * 여러 개의 조건들이 연속해서 판단된다.
+	 */
+	public static void printGrade2(int score) {
+		char grade = ' '; //예외: 원하지 않는 범위, 값을 판단하여 처리한다.
+		if(score<0 || score >100) {
+			System.out.println("0~100 사이의 점수를 입력해주세요.");
+			return;
+		}
+		if(score>=90) {
+			grade='A';
+		}else if(score>=80) { //<조건의 연속성> 이미 else로 내려올 때는 90보다 작으니까 
+			grade='B'; //만약 200점이라고 잘못 입력하면 B로 나와버림 따라서 범위체크 먼저
+		}else if(score>=60) {
+			grade='C';
+		}else if(score>=40) {
+			grade='D';
+		}else if(score>=0) {
+			grade='F';
+		} 
+		//else {
+		// 가장 안에 있는 else는 위의 나열된 조건들이 모두 거짓일 때 실행
+		//System.out.println("점수 범위가 잘못되었습니다.");			
+		//}
+		System.out.println("printGrade:"+grade);
+	}
+	
+	
+}
