@@ -1,0 +1,86 @@
+
+import java.util.Scanner;
+
+public class SampleApp03 {
+	
+	//<Paging>
+	//:화면에 보여줄 데이터의 개수는 한정
+	/**
+	 * <페이지 번호 표시>
+	 * 총 개수
+	 * 페이지당 개수
+	 * 전체 페이지 수 - 마지막 페이지의 번호 (페이지가 14개있으면, 14번으로 봐도 되냐.-> 시작이 1번이니까 가능)
+	 * 시작 첫 페이지 번호 ==1
+	 * 페이지 번호를 한 화면에 몇 개 보여줄 것? -> length
+	 * 
+	 * prev
+	 * next
+	 * 		-> start가 바뀜(end는 start에 따라 바뀌니까)
+	 *  
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int totalCount=330; //총 보여줄 컨텐츠 개수
+		int numsPerPage=25; //페이지당 수용할 수 있는 컨텐츠 개수
+		int totalPages=totalCount/numsPerPage;//필요한 페이지 수 
+		//나누기로 하면, 5개가 누락됨, 몫이니까 꼭 역산을 해볼 것
+			if(totalCount%numsPerPage>0/*나머지가 남는 경우*/) {
+				totalPages+=1;//페이지 처리할 때 나머지 개수를 꼭 확인할 것.//시작번호가 0일 때는 totalPages가 달라짐
+			}
+		System.out.println(totalPages+"개 의 페이지가 존재합니다.");
+		
+		
+		int length=10;//화면에 페이지 번호 10개씩 출력
+		int start=1;
+		Scanner keyboard = new Scanner(System.in);//키보드로 문자를 입력받아서 변환할 것이다.
+		int curPage=1;//현재 페이지, 변하는 값이니까 변수로 처리
+		while(true) {
+			int end=start+length;//while문 안에서 start변수 값에 따라 end값이 변해야 하므로, while문 안에 써야함.
+			if(end>totalPages) {//totalPages(page갯수)보다 end값이 커지면, 숫자가 없는 페이지까지 출력되므로..
+			   end=totalPages+1;//밑의 for문에서 반복되어야하는 end값을 위해서..
+			   //페이지 14번까지 출력되기 위해서는 15까지 end값이 있어야함.
+			}
+	
+		System.out.print("prev ");
+			
+			for(int i=start;i<end;i+=1) {
+				if(i!=curPage) {
+				System.out.print(" "+i+" ");
+				}else {
+				System.out.print("["+i+"]");
+				}//if else말고 조건연산자도 가능
+			}
+			
+		System.out.println("next");
+		System.out.println();
+		System.out.println("cmd> ");
+			
+		 	//입력할 것이 prev,next같은 문자도 있고, 1234같은 숫자도 있음 2종류임
+			String cmd=keyboard.nextLine(); //cmd에 사용자가 키보드로 입력한 문자열을 nextLine함수로 저장한다.
+			if(cmd.equals("prev")) {//사용자가 입력한 cmd값이 prev와 같다면(문자열 비교는 .equals함수
+				if(start-length>=1) {//음수가 나오지 않게 하기 위해서 
+					start=start-length;
+				}
+//	방법2			start=start-length; //우선 대입먼저하고, start를 1로 되돌림
+//				if(start<1) {
+//					start=1;
+//				}
+			}else if(cmd.equals("next")){
+				if(start+length<totalPages) {
+					start=start+length;
+				}
+			}else{
+				curPage=Integer.parseInt(cmd);//문자열을 정수로 바꿔주는 함수 -> Integer.paseInt();
+				//페이지 번호는 지금 정수형 int i (String<->int 자료형 맞춰줘야함)
+				//숫자가 아니면 에러 발생
+				if(curPage>=1 && curPage<=totalPages) {
+					System.out.println("존재하는 페이지 번호입니다.");
+				}else {
+					System.out.println("존재하지 않는 페이지 번호입니다.");
+				}
+				//코드의 수정 위치를 찾을 수 있나요?
+			}
+		}
+//		keyboard.close();
+	}//end main
+}//end class
