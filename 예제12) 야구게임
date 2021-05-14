@@ -1,0 +1,114 @@
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class SampleApp04 {
+/**
+ * 
+ * <숫자맞추기 게임: 야구게임
+ * 	:3자리의 정수를 서로 맞추는 게임
+ * 		1. 각 자리에 중복이 없어야 한다. 123,112
+ * 		2. 값이 같다, 위치(자리)가 같으면 스트라이크
+ * 		 - 위치가 다르면 볼
+ * 		3. 스트라이크 3이면 정답이다.
+ * 		
+ * 	//예를들어
+ *  	274 
+ *  	123
+ *  	-> 1Ball, 0Strike
+ *  	143
+ *  	413
+ *  	-> 2B,1S
+ *  	0S,0B->OUT
+ *  	->OUT 2번이면 금방함
+ *  
+ *  //사람이 컴퓨터의 정답을 맞춘다.
+ * 		1. 컴퓨터가 정답을 결정(중복이 없는 세 자리 정수)
+ * 		2. 사람이 물어본다->키보드로 입력
+ * 		3. 컴퓨터가 입력값을 자신의 정답과 대조해서 스트라이크&볼 개수를 출력
+ * 			- 스트라이크 3개이면 종료
+ * 			- 아니라면 2번으로 돌아감
+ * 
+ * @param args
+ */
+	
+	public static void main(String[] args) {
+		Scanner kb=new Scanner(System.in);
+		int strike;
+		int ball;
+		int answer; //백의자리, 십의자리, 일의자리로 분리해서 비교해야 함
+		System.out.println("정답을 정하는 중...");
+		answer=genInteger();
+		while(true) {
+			System.out.println("call ?");
+			int callValue=kb.nextInt();
+			{
+				int cv=callValue;
+				int av=answer;
+				strike=ball=0;
+				//각 자리로 나누어서 비교해야 한다.
+				for(int i=0;i<3;i+=1) {//cv자리값
+					int cv_n=cv%10; //1의자리값 하나 뽑아냄, 뽑아낸 값은 아래의for문으로 가서 처리되고,
+					cv/=10;//cv값은 10으로 나누어서, 다음 10의자리 값을 뽑아냄
+					av=answer;//av값이 0이 되면 비교할 값이 없어진다.
+					for(int k=0;k<3;k+=1) {//av자리값
+						int av_n=av%10;
+						av/=10; //av값이 0이 되면 비교할 값이 없어진다.
+						if(cv_n==av_n/*값 비교*/) {
+							if(i==k/*위치비교*/) {
+								strike+=1;
+							}else {
+								ball+=1;
+							}
+						}
+					}
+				}
+			}
+		
+			System.out.println("S:"+strike+", B:"+ball);
+			if(strike==3) {
+				System.out.println("정답입니다.");
+				break;
+			}
+		}
+		System.out.println(answer);
+		kb.close();
+	}
+	private static void judge(int param, int arg) {
+		int strike=0;
+		int ball=0;
+		//위치와 값을 판단하는 문제는 그에 알맞는 구조로 바꾼다.
+		String ps=""+param; //정수를 문자열(문자 배열,배열이라는 구조자체가 위치, 값을 동시에 가짐)로 바꿈 123->"123"
+		String as=""+arg;
+		for(int i=0;i<3;i+=1) {
+			for (int k = 0; k < 3; k+=1) {
+				if (ps.charAt(i)==as.charAt(k)) {
+					if (i==k) {
+						strike+=1;
+					}else {
+						ball+=1;
+					}
+				}
+			}
+		}
+	}
+	
+	public static int genInteger() {//3자리의 정수를 반환하는 함수
+		int number=0;
+		Random ran=new Random();
+//		number=ran.nextInt(900)+100;//(0~899)+100 /?1000-1하면안되나->세자리여야 하니까, 최소 세자리 수 100
+		int r;
+		for(int i=0;i<3;) {
+			r=ran.nextInt(9)+1;//1~9, 0을 빼기 위해서
+			//number변수 안에 r값이 있는지 확인한다.
+			boolean 백=(number/100)==r;
+			boolean 십=((number/10)%10)==r; //(378/10하면 약 37,37을10으로 나눈 나머지는? 7->10의자리수)
+			boolean 일=(number%10)==r;
+			if (!(백||십||일)/*모두 다르면*/) {
+				number=number*10+r;//얘가 3번 실행되기 위해서 for문이 실행되는거므로
+				i=i+=1;//정수를 만들고 나서 위의 카운트가 올라가서 새 정수를 만들어야 하므로 여기에 해야함
+			}
+		}
+		return number;
+	}
+}
