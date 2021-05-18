@@ -1,0 +1,121 @@
+
+import java.util.*;
+
+interface Eatable {} 
+class Fruit implements Eatable {
+	public String toString() {
+		return "Fruit";
+	}
+}
+class Apple extends Fruit {
+	public String toString() {
+		return "Apple";
+	}
+}
+class Grape extends Fruit {
+	public String toString() {
+		return "Grape";
+	}
+}
+class Toy {
+	public String toString() {
+		return "Toy";
+	}
+}
+
+class Box<T> {
+	ArrayList<T> list = new ArrayList<T>();
+	
+	void add(T item) {list.add(item);}
+	T get(int i)	 {return list.get(i);}
+	int size()		 {return list.size();}
+	public String toString() {
+		return list.toString();
+	}
+}
+
+class FruitBox<T extends Fruit & Eatable> extends Box<T>{}
+
+
+public class BookEx12_2_Generics {
+	public static void main(String[] args) {
+		
+		FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
+		FruitBox<Apple> appleBox = new FruitBox<Apple>();
+		FruitBox<Grape> grapeBox = new FruitBox<Grape>();
+//		FruitBox<Grape> grapeBox = new FruitBox<Apple>(); 타입 불일치 에러
+//		FruitBox<Toy> toyBox = new FruitBox<Toy>();
+		
+		fruitBox.add(new Fruit());
+		fruitBox.add(new Apple());
+		fruitBox.add(new Grape());
+		appleBox.add(new Apple());
+//		appleBox.add(new Grape()); // 에러 , grape는 apple의 자손이 아니기 때문에
+		grapeBox.add(new Grape());
+		
+		System.out.println("fruitBox-"+fruitBox);
+		System.out.println("appleBox-"+appleBox);
+		System.out.println("grapeBox-"+grapeBox);
+		
+	}
+
+}
+
+//=================================================================
+
+class MyData<T>{
+	private T a;
+	MyData(T a) {
+		this.a = a;
+	}
+	MyData() {}
+	public T getA() {
+		return this.a;
+	}
+}
+public class Sample12_generics {
+
+	public static void main(String[] args) {
+		MyData m = new MyData(11);
+		Object o = m.getA();
+		MyData m1 = new MyData("이순신");
+		Object o1 = m1.getA();
+		String s = (String)o1;
+		
+		MyData<Integer> m2 = new MyData<Integer>(10);
+		MyData<String> m3 = new MyData<String>("이순신");
+		int i = m2.getA();
+		String s2 = m3.getA();
+	}
+
+}
+
+//=================================================================
+
+
+import java.util.*;
+
+interface MyData2 <T> {
+	T add(T a);
+}
+class MyData3 <T> implements MyData2 {
+
+	@Override
+	public T add(T a) {
+		return null;
+	}	
+}
+
+class MyDataType {}
+
+public class Sample13 {
+
+	public static void main(String[] args) {
+		ArrayList al = new ArrayList();
+		ArrayList<String> al2 = new ArrayList<String>();
+		al2.add("1");
+		ArrayList<MyDataType> al3 = new ArrayList<MyDataType>();
+		al3.add(new MyDataType());
+	}
+
+}
