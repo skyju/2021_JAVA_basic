@@ -1,0 +1,29 @@
+
+public class Sample07_innerClass {
+	static class StaticClass {
+		void testMethod2() {
+			System.out.println("testMethod in StaticClass"+b);
+		}
+	}
+	static int b = 30;
+	
+	public static void main(String[] args) {
+		Sample07_innerClass obj = new Sample07_innerClass();
+		Sample07_innerClass.InnerClass obj2 = 
+				obj.new InnerClass();
+		obj2.testMethod();
+		Sample07_innerClass.InnerClass obj3 = obj.new InnerClass();
+		
+		Sample07_innerClass.StaticClass obj4 = new Sample07_innerClass.StaticClass();
+		obj4.testMethod2();
+		
+	}
+	
+	private int a = 10;
+	class InnerClass {
+		void testMethod() {
+			System.out.println("testMethod in innerClass"+a);
+		}
+	}
+
+}
