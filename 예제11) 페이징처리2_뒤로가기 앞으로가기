@@ -1,0 +1,72 @@
+
+import java.util.*;
+
+public class BookEx11_9 {
+	
+	//back과 forward라는 이름의 stack 객체 생성
+	public static Stack back = new Stack();
+	public static Stack forward = new Stack();
+	
+	public static void main(String[] args) {
+		goURL("1. 네이트");
+		goURL("2. 야후");
+		goURL("3. 네이버");
+		goURL("4. 다음");
+		
+		printStatus();
+		
+		goBack();
+		System.out.println(" = '뒤로' 버튼을 누른 후  = ");
+		printStatus();
+		
+		goBack();
+		System.out.println(" = '뒤로' 버튼을 누른 후  = ");
+		printStatus();
+		
+		goForward();
+		System.out.println(" = '앞으로' 버튼을 누른 후  = ");
+		printStatus();
+	
+		goURL("codechobo.com");
+		System.out.println(" = 새로운 주소로 이동  = ");
+		printStatus();
+		
+	}
+	
+	//현재 상태를 출력
+	public static void printStatus() {
+		System.out.println("back: "+back);
+		System.out.println("forward: "+forward);
+		System.out.println("현재화면은 '"+back.peek()+"' 입니다.");
+		System.out.println();
+		//peek - 맨 위에 저장된 객체를 반환, pop과 달리 stack에서 객체를 꺼내지는 않음
+	}
+	
+	//URL로 이동
+	public static void goURL(String url) {
+		back.push(url);
+		if(!forward.empty()) { 
+			forward.clear();
+		//back stack에 url을 저장하고, 만약 forward stack이 비지 않았다면 지운다.
+		}
+	}
+	
+	//앞의 페이지로 이동
+	public static void goForward() {
+		if(!forward.empty()) {
+			back.push(forward.pop()); 
+			//forward stack에 뭔가 있으면 
+			//back stack에 forward의 가장 최근 저장된 값 꺼내서 넣는다.
+		}
+	}
+	
+	//이전 페이지로 이동
+	public static void goBack() {
+		if(!back.empty()) { 
+			forward.push(back.pop());
+			//back stack에 뭔가 있다면
+			//forward stack에 back의 가장최근 저장된 값 꺼내서 넣는다.
+		}
+	}
+
+}
