@@ -5,16 +5,23 @@ import ws1.java2.entity.*;
 public class VehicleManager {
 		ArrayList vehicles = new ArrayList();
 		
-	public VehicleManager() {//»ı¼ºÀÚ
-		vehicles.add(new Airplane("º¸À×747",1300,300,4,true));
+	public VehicleManager() {//ìƒì„±ì
+		vehicles.add(new Airplane("ë³´ì‰747",1300,300,4,true));
 		vehicles.add(new Airplane("F-15",1600,1,1,true));
-		vehicles.add(new Car("±×·£Àú",180,5,10,true));
-		vehicles.add(new Car("½ºÆÄÅ©",130,4,15,true));
-		vehicles.add(new Car("½ºÅ¸·º½º",150,10,11,true));
-		vehicles.add(new Ship("Å©·çÁî2",30,400,35000,true));
-		vehicles.add(new Ship("³ëÆ¿·¯½º",25,150,15000,true));
+		vehicles.add(new Car("ê·¸ëœì €",180,5,10,true));
+		vehicles.add(new Car("ìŠ¤íŒŒí¬",130,4,15,true));
+		vehicles.add(new Car("ìŠ¤íƒ€ë ‰ìŠ¤",150,10,11,true));
+		vehicles.add(new Ship("í¬ë£¨ì¦ˆ2",30,400,35000,true));
+		vehicles.add(new Ship("ë…¸í‹¸ëŸ¬ìŠ¤",25,150,15000,true));
 	}
-	
+	public void sortByName() {
+		Collections.sort(vehicles, new Comparator<Vehicle>() {
+		@Override
+			public int compare(Vehicle o1, Vehicle o2) {
+				return o1.getModelName().compareTo(o2.getModelName());
+			}
+		});
+	}
 	public void displayVehicles1(String title) {
 		System.out.println(title);
 		for (int inx = 0 ; inx < vehicles.size() ; inx++) {
