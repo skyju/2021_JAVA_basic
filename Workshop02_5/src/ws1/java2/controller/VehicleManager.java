@@ -3,7 +3,7 @@ import java.util.*;
 import ws1.java2.entity.*;
 
 public class VehicleManager {
-		ArrayList vehicles = new ArrayList();
+		ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 		
 	public VehicleManager() {//생성자
 		vehicles.add(new Airplane("보잉747",1300,300,4,true));
