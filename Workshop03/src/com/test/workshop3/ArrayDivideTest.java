@@ -14,11 +14,11 @@ public class ArrayDivideTest {
 				int a = arrayOne[i]/arrayTwo[i];
 	    		System.out.printf("%d / %d = %d\n",arrayOne[i],arrayTwo[i],a);
 			} catch(ArithmeticException e) {
-	    		System.out.println("³ª´©±â ¿¬»ê ½Ã ¿¡·¯°¡ ¹ß»ıÇÏ¿´½À´Ï´Ù.");
+	    		System.out.println("ë‚˜ëˆ„ê¸° ì—°ì‚° ì‹œ ì—ëŸ¬ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤.");
 	    	} catch(ArrayIndexOutOfBoundsException e) {
-	        	System.out.println("ÀÎµ¦½º ¹üÀ§¸¦ ¹ş¾î³ª´Â °ª¿¡ Á¢±ÙÇÏ¿´½À´Ï´Ù.");
+	        	System.out.println("ì¸ë±ìŠ¤ ë²”ìœ„ë¥¼ ë²—ì–´ë‚˜ëŠ” ê°’ì— ì ‘ê·¼í•˜ì˜€ìŠµë‹ˆë‹¤.");
 	        }	catch(Exception e) {
-	    		System.out.println("Á¾·á");
+	    		System.out.println("ì˜¤ë¥˜ì…ë‹ˆë‹¤.");
 	    	}
 		}
 	}

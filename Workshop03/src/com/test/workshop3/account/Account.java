@@ -11,36 +11,36 @@ public class Account {
     	this.account = account;
         this.name    = name;
         this.balance = balance;
-    	if (balance <= 0) {//ÃÖÃÊ ÀÔ±Ý ±Ý¾×ÀÌ 0¿ø ÀÌÇÏÀÎ °æ¿ì ¿¹¿Ü ¹ß»ý
-    		throw new InvalidValueException("[¿¡·¯] °èÁÂ »ý¼º ½Ã, ÃÖÃÊ ÀÔ±Ý ±Ý¾×ÀÌ ÇÊ¿äÇÕ´Ï´Ù.");
+    	if (balance <= 0) {
+    		throw new InvalidValueException("[ì—ëŸ¬] ê³„ì¢Œ ìƒì„± ì‹œ, ìµœì´ˆ ìž…ê¸ˆ ê¸ˆì•¡ì´ í•„ìš”í•©ë‹ˆë‹¤.");
     	}
     	if (this.account.equals("")) {
-    		throw new InvalidValueException("[¿¡·¯] °èÁÂ »ý¼º ½Ã, °èÁÂ ¹øÈ£ ÀÔ·ÂÀÌ ÇÊ¿äÇÕ´Ï´Ù.");
+    		throw new InvalidValueException("[ì—ëŸ¬] ê³„ì¢Œ ìƒì„± ì‹œ, ê³„ì¢Œë²ˆí˜¸ê°€ í•„ìš”í•©ë‹ˆë‹¤.");
     	}
     	if (this.name.equals("")) {
-    		throw new InvalidValueException("[¿¡·¯] °èÁÂ »ý¼º ½Ã, ¿¹±ÝÁÖ ¸íÀÌ ÇÊ¿äÇÕ´Ï´Ù.");
+    		throw new InvalidValueException("[ì—ëŸ¬] ê³„ì¢Œ ìƒì„± ì‹œ, ê³„ì¢Œ ì£¼ì˜ ëª…ì´ í•„ìš”í•©ë‹ˆë‹¤.");
     	}
     }
     
     public void deposit(int money) throws InvalidValueException {
-        if (money <= 0) {//ÀÔ±ÝÇÒ ±Ý¾×ÀÌ 0¿ø ÀÌÇÏÀÎ °æ¿ì ¿¹¿Ü ¹ß»ý
-        	throw new InvalidValueException("[¿¡·¯] ÀÔ±ÝÇÒ ±Ý¾×Àº 0¿ø ÃÊ°úÀÇ ¼ýÀÚ·Î ÀÔ·ÂÇÏ¼¼¿ä.");
+        if (money <= 0) {
+        	throw new InvalidValueException("[ì—ëŸ¬] ìž…ê¸ˆí•  ê¸ˆì•¡ì€ 0ì› ì´ˆê³¼ì˜ ìˆ«ìžë¡œ ìž…ë ¥í•˜ì„¸ìš”.");
         }
         balance += money;
     }
     
     public void withdraw(int money) throws InvalidValueException {
-        if (money <= 0) {//Ãâ±ÝÇÒ ±Ý¾×ÀÌ 0¿ø ÀÌÇÏÀÎ °æ¿ì ¿¹¿Ü ¹ß»ý
-        	throw new InvalidValueException("[¿¡·¯] Ãâ±ÝÇÒ ±Ý¾×Àº 0¿ø ÃÊ°úÀÇ ¼ýÀÚ·Î ÀÔ·ÂÇÏ¼¼¿ä.");
+        if (money <= 0) {
+        	throw new InvalidValueException("[ì—ëŸ¬] ì¶œê¸ˆí•  ê¸ˆì•¡ì€ 0ì› ì´ˆê³¼ì˜ ìˆ«ìžë¡œ ìž…ë ¥í•˜ì„¸ìš”.");
         }
-        if (this.balance < money) {//ÀÜ¾×ÀÌ ºÎÁ·ÇÑ °æ¿ì ¿¹¿Ü ¹ß»ý
-        	throw new InvalidValueException("[¿¡·¯] ÀÜ¾×ÀÌºÎÁ·ÇÕ´Ï´Ù.");
+        if (this.balance < money) {
+        	throw new InvalidValueException("[ì—ëŸ¬] ìž”ì•¡ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.");
         }
         balance -= money;
     }
     
     @Override
     public String toString() {
-    	return "[°èÁÂ] " + account + "\t[¿¹±ÝÁÖ] " + name + "\t[ÀÜ¾×] " + balance;
+    	return "[ê³„ì¢Œ] " + account + "\t[ì˜ˆê¸ˆì£¼] " + name + "\t[ìž”ì•¡] " + balance;
     }
 }

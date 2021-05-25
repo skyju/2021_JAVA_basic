@@ -18,9 +18,9 @@ public class Airplane extends Vehicle {
 	public void displayInfo() {
 		if(getAvailable()==true) {
 		super.displayInfo();
-		System.out.println(" ¿£Áø°³¼ö : " + getNumOfEngine() + "°³");
+		System.out.println(" ì—”ì§„ê°œìˆ˜ :" + getNumOfEngine() + "ê°œ");
 		} else {
-			System.out.println("ÇöÀç »ç¿ë °¡´ÉÇÑ »óÅÂ°¡ ¾Æ´Õ´Ï´Ù.");
+			System.out.println("í˜„ì¬ ì‚¬ìš©ê°€ëŠ¥í•œ ìƒíƒœê°€ ì•„ë‹™ë‹ˆë‹¤.");
 		}
 	}
 }

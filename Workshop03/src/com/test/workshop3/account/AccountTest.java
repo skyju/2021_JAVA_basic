@@ -18,36 +18,36 @@ public class AccountTest {
             	int balance;
                 menu = Integer.parseInt(getUserInput());           
                 switch ( menu ) {
-                case 1:     // °èÁÂ »ı¼º
-                    System.out.print( "\n°èÁÂ¹øÈ£ : " );
+                case 1:     
+                    System.out.print( "\nê³„ì¢Œë²ˆí˜¸ : " );
                     account = getUserInput();
-                    System.out.print( "¿¹±İÁÖ : " );
+                    System.out.print( "ì˜ˆê¸ˆì£¼ : " );
                     name = getUserInput();
-                    System.out.print( "ÃÖÃÊ ÀÔ±İ : " );
+                    System.out.print( "ìµœì´ˆ ì…ê¸ˆ : " );
                     balance = Integer.parseInt(getUserInput());
                     acc = new Account(account, name, balance);
                     break;
-                case 2:     // °èÁÂ Á¤º¸ Ãâ·Â
+                case 2:     
                 	checkAccount(acc);
                 	System.out.println(acc.toString());
                     break;
-                case 3:     // ÀÔ±İ
+                case 3:    
                 	checkAccount(acc);
-                    System.out.print( "ÀÔ±İÇÒ ±İ¾× : " );
+                    System.out.print( "ì…ê¸ˆí•  ê¸ˆì•¡ : " );
                     int input4 = Integer.parseInt(getUserInput());
                     acc.deposit(input4);
                     break;
-                case 4:     // Ãâ±İ
+                case 4:     
                 	checkAccount(acc);
-                    System.out.print( "Ãâ±İÇÒ ±İ¾× : " );
+                    System.out.print( "ì¶œê¸ˆí•  ê¸ˆì•¡ : " );
                     int input5 = Integer.parseInt(getUserInput());
                     acc.withdraw(input5);
                     break;
-                case 9:     // Á¾·á
-                    System.out.println( "Á¾·áÇÕ´Ï´Ù." );
+                case 9:     
+                    System.out.println( "ì¢…ë£Œí•©ë‹ˆë‹¤." );
                     break;
                 default:
-                    System.out.println( "[¿¡·¯] ¸Ş´º¸¦ Àß¸ø ÀÔ·ÂÇÏ¿´½À´Ï´Ù." );
+                    System.out.println( "[ì—ëŸ¬] ë©”ë‰´ë¥¼ ì˜ëª» ì…ë ¥í•˜ì˜€ìŠµë‹ˆë‹¤." );
                     break;
                 }
             } catch (InvalidValueException e) {
@@ -55,27 +55,27 @@ public class AccountTest {
             } catch (AccountNotFoundException e) {
             	System.out.println(e.getMessage());
             } catch (NumberFormatException e) {
-            	System.out.println("[¿¡·¯] ¸Ş´º´Â ¼ıÀÚ·Î ÀÔ·ÂÇØ¾ß ÇÕ´Ï´Ù.");
+            	System.out.println("[ì—ëŸ¬] ë©”ë‰´ëŠ” ìˆ«ìë¡œ ì…ë ¥í•´ì•¼ í•©ë‹ˆë‹¤.");
             } catch (Exception e) {
             	System.out.println(e.getStackTrace());
             }
-        }//while¹® Á¾·á
+        }//while
     }//main method
     
     public static void checkAccount(Account acc) throws AccountNotFoundException {
     	if(acc == null) {
-    		throw new AccountNotFoundException("[¿¡·¯] °èÁÂ°¡ ¾ø½À´Ï´Ù.");
+    		throw new AccountNotFoundException("[ï¿½ï¿½ï¿½ï¿½] ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
     	}
     }
     private static void printMenu() {
-        System.out.println( "\n===== < ¸Ş´º > =====" );
-        System.out.println( " 1. °èÁÂ »ı¼º" );
-        System.out.println( " 2. °èÁÂ Á¤º¸ Ãâ·Â" );
-        System.out.println( " 3. ÀÔ±İ" );
-        System.out.println( " 4. Ãâ±İ" );
-        System.out.println( " 9. Á¾·á" );
+        System.out.println( "\n===== <ë©”ë‰´> =====" );
+        System.out.println( " 1. ê³„ì¢Œ ìƒì„±" );
+        System.out.println( " 2. ê³„ì¢Œ ì •ë³´ ì¶œë ¥" );
+        System.out.println( " 3. ì…ê¸ˆ" );
+        System.out.println( " 4. ì¶œê¸ˆ" );
+        System.out.println( " 9. ì¢…ë£Œ" );
         System.out.println( "===================" );
-        System.out.print( ">> ¸Ş´º : " );
+        System.out.print( ">> ë©”ë‰´ : " );
     }
     public static String getUserInput() {        
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

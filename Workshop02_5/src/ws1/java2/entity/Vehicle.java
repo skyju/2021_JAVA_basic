@@ -41,8 +41,8 @@ public class Vehicle {
 	}
 	public void displayInfo() {
 		System.out.println("-------------------------------------------");
-		System.out.println(" ¸ğ µ¨ ¸í : " + getModelName());
-		System.out.println(" ÃÖ°í¼Óµµ : " + getMaxSpeed() + "km/h");
-		System.out.println(" ÃÖ´ëÁ¤¿ø : " + getNumberLimit() + "¸í");
+		System.out.println(" ëª¨ ë¸ ëª… : " + getModelName());
+		System.out.println(" ìµœê³ ì†ë„: " + getMaxSpeed() + "km/h");
+		System.out.println(" ìµœëŒ€ì •ì›: " + getNumberLimit() + "ëª…");
 	}
 }

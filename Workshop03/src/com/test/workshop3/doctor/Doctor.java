@@ -24,12 +24,12 @@ public class Doctor {
 	public Doctor() {}
     
     public void treatPatient() {
-        System.out.println( "È¯ÀÚ¸¦ Áø·áÇÕ´Ï´Ù." );
+        System.out.println( "í™˜ìë¥¼ ì§„ë£Œí•©ë‹ˆë‹¤." );
     }
     
     @Override
     public String toString() {
-        return department + " : " + name + " ¼±»ı´Ô";
+        return department + " : " + name + " ì„ ìƒë‹˜";
     }
     
     public void displayingInfo() {

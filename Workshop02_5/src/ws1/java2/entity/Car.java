@@ -18,9 +18,9 @@ public class Car extends Vehicle {
 	public void displayInfo() {
 		if(getAvailable()==true) {
 		super.displayInfo();
-		System.out.println(" Æò±Õ¿¬ºñ : " + getMileage() + "km/l");
+		System.out.println(" í‰ê· ì—°ë¹„ :" + getMileage() + "km/l");
 		} else {
-			System.out.println("ÇöÀç »ç¿ë °¡´ÉÇÑ »óÅÂ°¡ ¾Æ´Õ´Ï´Ù.");
+			System.out.println("í˜„ì¬ ì‚¬ìš©ê°€ëŠ¥í•œ ìƒíƒœê°€ ì•„ë‹™ë‹ˆë‹¤.");
 		}
 	}
 }

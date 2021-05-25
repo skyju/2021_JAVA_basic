@@ -10,12 +10,12 @@ public class DoctorTest {
         List<Dentist> dent = new ArrayList<Dentist>();
         List<Surgeon> surg = new ArrayList<Surgeon>();
         
-        dent.add(new Dentist("È«±æµ¿"));
-        dent.add(new Dentist("Àü¿ìÄ¡"));
+        dent.add(new Dentist("í™ê¸¸ë™"));
+        dent.add(new Dentist("ì „ìš°ì¹˜"));
         
-        surg.add(new Surgeon("ÀÓ²©Á¤"));
-        surg.add(new Surgeon("È«±æ¼ø"));
-        surg.add(new Surgeon("±¤°³Åä"));
+        surg.add(new Surgeon("ì„êº½ì •"));
+        surg.add(new Surgeon("í™ê¸¸ìˆœ"));
+        surg.add(new Surgeon("ê´‘ê°œí† "));
         
     }
 }
