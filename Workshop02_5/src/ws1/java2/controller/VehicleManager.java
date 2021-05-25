@@ -3,7 +3,8 @@ import java.util.*;
 import ws1.java2.entity.*;
 
 public class VehicleManager {
-		ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
+	
+	ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 		
 	public VehicleManager() {//생성자
 		vehicles.add(new Airplane("보잉747",1300,300,4,true));
@@ -33,7 +34,7 @@ public class VehicleManager {
 	
 	public void displayVehicles2(String title) {
 		System.out.println(title);
-		Iterator itr = vehicles.iterator();
+		Iterator<Vehicle> itr = vehicles.iterator();
 		while(itr.hasNext()) {
 			Vehicle v = (Vehicle)itr.next();
 			v.displayInfo();

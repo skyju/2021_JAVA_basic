@@ -14,6 +14,7 @@ public class Car extends Vehicle {
 			 int mileage,
 			 boolean available) {
 		super(modelName, maxSpeed, numberLimit, mileage, available);
+		this.mileage = mileage;
 	}
 	public void displayInfo() {
 		if(getAvailable()==true) {

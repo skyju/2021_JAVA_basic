@@ -14,6 +14,7 @@ public class Ship extends Vehicle {
 			 int replacement,
 			 boolean available) {
 		super(modelName, maxSpeed, numberLimit, replacement,available);
+		this.replacement = replacement;
 	}
 	public void displayInfo() {
 		if(getAvailable()==true) {

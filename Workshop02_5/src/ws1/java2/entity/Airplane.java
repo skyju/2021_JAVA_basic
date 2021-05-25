@@ -14,6 +14,7 @@ public class Airplane extends Vehicle {
 			 int numOfEngine,
 			 boolean available) {
 		super(modelName, maxSpeed, numberLimit, numOfEngine, available);
+		this.numOfEngine = numOfEngine;
 	}
 	public void displayInfo() {
 		if(getAvailable()==true) {
